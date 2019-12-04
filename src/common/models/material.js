@@ -59,8 +59,11 @@ module.exports = function(Material) {
       console.log('mnozstvi present');
       scenario += 1;
     };
-    console.log('Scenario identified: ' + scenario);
+    console.log('Scenario identified (sending to Kafka): ' + scenario);
     // processing scenarios
+	kafka.sendEvent(kmat, mnozstvi, mvmTo, mvmFrom, hmotnost,'Updated ' + updatedCnt + ' rows.',cb);
+	
+    /*
     if (scenario == 18) {  // update hmotnost pres vsechny sklady
       console.log('updating hmotnost of kmat: ' + kmat + ' to: ' + hmotnost);
       var updatedCnt = 0;
@@ -74,6 +77,7 @@ module.exports = function(Material) {
         kafka.sendEvent(kmat, mnozstvi, mvmTo, mvmFrom, hmotnost,'Updated ' + updatedCnt + ' rows.',cb);
       });
     }
+	*/
   };
 
   Material.listAll = function(cb) {

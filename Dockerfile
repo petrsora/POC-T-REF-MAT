@@ -9,6 +9,7 @@ RUN yum install -y nodejs
 #RUN yum install -y python2 node-gyp gcc make unixODBC
 RUN yum install -y python2 
 RUN yum install -y gcc
+RUN yum install -y gcc-c++.x86_64
 RUN yum install -y make 
 RUN yum install -y unixODBC
 #RUN yum install -y node-gyp 

@@ -1,6 +1,6 @@
 FROM centos
 
-RUN yum list
+RUN yum list | grep -e ++
 
 RUN yum install -y epel-release
 

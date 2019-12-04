@@ -9,7 +9,8 @@ RUN yum install -y python2
 RUN yum install -y gcc 
 RUN yum install -y make 
 RUN yum install -y unixODBC
-RUN yum install -y node-gyp 
+#RUN yum install -y node-gyp 
+RUN npm install -g node-gyp
 
 
 RUN mkdir -p /app

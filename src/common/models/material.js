@@ -1,4 +1,5 @@
 var kafka = require('../../kafka/kafka');
+var updatedCnt = 0;
 
 module.exports = function(Material) {
   Material.findBy = function (kmat,mvm,limit,cb) {
@@ -61,7 +62,9 @@ module.exports = function(Material) {
     };
     console.log('Scenario identified (sending to Kafka): ' + scenario);
     // processing scenarios
-	kafka.sendEvent(kmat, mnozstvi, mvmTo, mvmFrom, hmotnost,'Updated ' + updatedCnt + ' rows.',cb);
+	
+	var updatedCnt = 0;
+	kafka.sendEvent(kmat, mnozstvi, mvmTo, mvmFrom, hmotnost,cb);
 	
     /*
     if (scenario == 18) {  // update hmotnost pres vsechny sklady
